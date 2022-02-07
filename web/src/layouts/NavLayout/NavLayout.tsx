@@ -8,16 +8,20 @@ const NavLayout = ({ children }: NavLayoutProps) => {
   return (
     <>
       <nav>
-        <ul>
-          <li>
+        <ul className="flex ml-4">
+          <li className="mr-4">
             <header>
               <h1>
-                <Link to={routes.home()}>Home</Link>
+                <Link className="hover:text-sky-700" to={routes.home()}>
+                  Home
+                </Link>
               </h1>
             </header>
           </li>
-          <li>
-            <Link to={routes.books()}>Books</Link>
+          <li className="mr-4">
+            <Link className="hover:text-sky-700" to={routes.books()}>
+              Books
+            </Link>
           </li>
         </ul>
       </nav>
