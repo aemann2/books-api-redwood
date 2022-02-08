@@ -1,6 +1,6 @@
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { Link, routes, navigate } from '@redwoodjs/router'
+import { routes, navigate } from '@redwoodjs/router'
 
 const DELETE_BOOK_MUTATION = gql`
   mutation DeleteBookMutation($id: Int!) {
@@ -53,20 +53,25 @@ const Book = ({ book }) => {
     <>
       <div className="rw-segment">
         <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">Book {book.id} Detail</h2>
+          <h2 className="rw-heading rw-heading-secondary">
+            Book {book.id} Detail
+          </h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
               <th>Id</th>
               <td>{book.id}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Title</th>
               <td>{book.title}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Author</th>
               <td>{book.author}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Created at</th>
               <td>{timeTag(book.createdAt)}</td>
             </tr>
@@ -74,12 +79,6 @@ const Book = ({ book }) => {
         </table>
       </div>
       <nav className="rw-button-group">
-        <Link
-          to={routes.editBook({ id: book.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
         <button
           type="button"
           className="rw-button rw-button-red"

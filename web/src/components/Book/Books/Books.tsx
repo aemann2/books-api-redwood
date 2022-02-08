@@ -89,13 +89,6 @@ const BooksList = ({ books }) => {
                   >
                     Show
                   </Link>
-                  <Link
-                    to={routes.editBook({ id: book.id })}
-                    title={'Edit book ' + book.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
                   <button
                     type="button"
                     title={'Delete book ' + book.id}
