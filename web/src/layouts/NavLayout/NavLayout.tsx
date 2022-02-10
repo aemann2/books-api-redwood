@@ -23,6 +23,11 @@ const NavLayout = ({ children }: NavLayoutProps) => {
               Books
             </Link>
           </li>
+          <li className="mr-4">
+            <Link className="hover:text-sky-700" to={routes.login()}>
+              Login
+            </Link>
+          </li>
         </ul>
       </nav>
       {children}
