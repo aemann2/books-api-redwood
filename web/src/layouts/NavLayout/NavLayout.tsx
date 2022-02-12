@@ -1,10 +1,15 @@
 import { Link, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 type NavLayoutProps = {
   children?: React.ReactNode
 }
 
 const NavLayout = ({ children }: NavLayoutProps) => {
+  const { isAuthenticated, currentUser, logOut } = useAuth()
+
+  console.log(currentUser)
+
   return (
     <>
       <nav>
@@ -23,11 +28,24 @@ const NavLayout = ({ children }: NavLayoutProps) => {
               Books
             </Link>
           </li>
-          <li className="mr-4">
-            <Link className="hover:text-sky-700" to={routes.login()}>
-              Login
-            </Link>
-          </li>
+          {isAuthenticated ? (
+            <>
+              <li className="mr-4">
+                <span>Logged in as {currentUser.email}</span>
+              </li>
+              <li className="mr-4">
+                <button className="hover:text-sky-700" onClick={logOut}>
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <li className="mr-4">
+              <Link className="hover:text-sky-700" to={routes.login()}>
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
       {children}
