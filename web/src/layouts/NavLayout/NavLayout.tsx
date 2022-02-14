@@ -8,8 +8,6 @@ type NavLayoutProps = {
 const NavLayout = ({ children }: NavLayoutProps) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
-  console.log(currentUser)
-
   return (
     <>
       <nav>
